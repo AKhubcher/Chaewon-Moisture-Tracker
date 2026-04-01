@@ -1,11 +1,12 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import SimpleChaewonPlant from "./components/SimpleChaewonPlant";
 
 export default function Home() {
 	const [moisture, setMoisture] = useState(42);
 	const [mood, setMood] = useState<"love" | "neutral" | "sad">("neutral");
+	const previousMood = useRef(mood);
 
 	// Fetch moisture data
 	useEffect(() => {
@@ -34,6 +35,14 @@ export default function Home() {
 
 		return () => clearInterval(interval);
 	}, []);
+
+	useEffect(() => {
+		if (previousMood.current !== mood) {
+			const audio = new Audio(`/images/${mood}.mp3`);
+			audio.play();
+			previousMood.current = mood;
+		}
+	}, [mood]);
 
 	return <SimpleChaewonPlant moisture={moisture} mood={mood} />;
 }

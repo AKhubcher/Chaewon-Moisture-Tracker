@@ -21,7 +21,7 @@ export default function SimpleChaewonPlant({
 	const getEmotionQuote = () => {
 		const emotionQuotes = {
 			love: {
-				quote: "I'm blooming with pure joy and endless energy! Every drop makes me stronger! ✨",
+				quote: "Your plant is well-hydrated",
 				song: "Feeling Fearless & Radiant",
 				caption: "Thriving & Glowing",
 			},
@@ -31,7 +31,7 @@ export default function SimpleChaewonPlant({
 				caption: "Peaceful Growth",
 			},
 			sad: {
-				quote: "I'm feeling a bit wilted and lonely... I miss the warmth of being loved 💧",
+				quote: "Your plant is dry af",
 				song: "Longing for Care",
 				caption: "Needs Tender Love",
 			},
@@ -412,15 +412,7 @@ export default function SimpleChaewonPlant({
 					}}
 				>
 					<div className="text-base text-gray-800 mb-2 italic leading-relaxed">
-						"{currentQuote}"
-					</div>
-					<div
-						className={`text-xs font-semibold flex items-center justify-between ${colors.text}`}
-					>
-						<span>- {currentSong}</span>
-						<span className="text-xs opacity-70">
-							🎵 Current Mood
-						</span>
+						{currentQuote}
 					</div>
 				</div>
 			</div>
